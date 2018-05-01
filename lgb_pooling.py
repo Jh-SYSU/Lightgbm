@@ -118,7 +118,7 @@ if __name__ == "__main__":
 	gbm = lgb.train(params, train, num_round, verbose_eval=50, valid_sets=[train,test])
 	preds_sub = gbm.predict(test_feat)
 
-	name='lgb_mean.csv'
+	name='lgb_pooling.csv'
 	submission['Ki'] = preds_sub
 	submission = pd.DataFrame(submission.groupby(['Protein_ID', 'Molecule_ID'])['Ki'].agg('mean')).reset_index()
 	submission.to_csv(name, index=False)
