@@ -34,8 +34,6 @@ def read_pro_data():
 			# print (pro_data.shape, p.shape)
 			pro_data = np.row_stack((pro_data, p)) 
 
-		print (pro_data)
-
 	pro_data = np.delete(pro_data, 0, 0)
 	pro_data = pd.DataFrame(pro_data)
 	pro_data.rename(columns = {10: 'Protein_ID'}, inplace = True)
